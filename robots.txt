@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://asli-khaana.netlify.app/sitemap.xml

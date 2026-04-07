@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swasth Swap — Healthy Indian Food Alternatives</title>
+  <meta name="description" content="Search any Indian food or brand — get healthy alternatives with ₹ prices & buy links. 19+ categories, 80+ swaps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#FDF6EC; --forest:#1E4D2B; --forest-md:#2D7A43; --forest-lt:#4A9E61;
+      --gold:#D4891A; --gold-lt:#F0B941;
+      --danger:#B83232; --danger-bg:#FFF5F5; --danger-bd:#FFCDD2;
+      --ok:#1A6B3A; --ok-bg:#F0FBF3; --ok-bd:#C8E6C9;
+      --text:#2C1810; --text-md:#5C3D2E; --text-lt:#8B6355;
+      --border:#E8DDD0; --white:#FFFFFF;
+      --shadow:0 2px 12px rgba(30,77,43,0.08);
+      --shadow-lg:0 8px 32px rgba(30,77,43,0.16);
+      --r:14px; --r-sm:8px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.5;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button{cursor:pointer;border:none;font-family:inherit;background:none}
+
+    /* HEADER */
+    header{position:sticky;top:0;z-index:200;background:rgba(253,246,236,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 20px}
+    .hdr{max-width:1200px;margin:0 auto;display:flex;align-items:center;height:52px;gap:12px}
+    .logo{display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--forest);white-space:nowrap}
+    .logo-leaf{animation:sway 3s ease-in-out infinite;display:inline-block}
+    @keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+
+    /* HERO */
+    .hero{background:linear-gradient(140deg,#1A4228 0%,#25693A 55%,#1A5E32 100%);padding:28px 20px 36px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:2}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:white;line-height:1.2;margin-bottom:6px}
+    .hero h1 em{color:var(--gold-lt);font-style:normal}
+    .hero p{color:rgba(255,255,255,0.72);font-size:0.86rem;margin-bottom:16px;max-width:500px}
+    .search-bar{display:flex;background:white;border-radius:100px;box-shadow:0 4px 20px rgba(0,0,0,0.22);overflow:hidden;max-width:540px}
+    .search-bar input{flex:1;padding:11px 20px;border:none;outline:none;font-size:0.9rem;font-family:inherit;color:var(--text);min-width:0}
+    .search-bar input::placeholder{color:#AAA}
+    .search-bar .sbtn{padding:8px 20px;background:var(--forest);color:white;font-size:0.85rem;font-weight:600;border-radius:100px;margin:4px;transition:background 0.2s;white-space:nowrap}
+    .search-bar .sbtn:hover{background:var(--forest-lt)}
+    .hero-stats{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+    .hero-stat{display:flex;align-items:center;gap:5px}
+    .hero-stat strong{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold-lt)}
+    .hero-stat span{font-size:0.7rem;color:rgba(255,255,255,0.58);text-transform:uppercase;letter-spacing:0.04em}
+
+    /* FILTER BAR */
+    .filter-bar{background:white;border-bottom:1px solid var(--border);position:sticky;top:52px;z-index:100}
+    .filt-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;height:44px;align-items:center}
+    .filt-inner::-webkit-scrollbar{display:none}
+    .fpill{flex-shrink:0;padding:4px 13px;border-radius:100px;border:1.5px solid var(--border);background:white;font-size:0.76rem;font-weight:500;color:var(--text-md);transition:all 0.18s;white-space:nowrap}
+    .fpill:hover{border-color:var(--forest);color:var(--forest)}
+    .fpill.active{background:var(--forest);border-color:var(--forest);color:white}
+
+    /* MAIN */
+    main{max-width:1200px;margin:0 auto;padding:16px 20px 80px}
+    .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .sec-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--forest)}
+    .results-count{font-size:0.75rem;color:var(--text-lt)}
+
+    /* CARD GRID */
+    .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+    @media(min-width:480px){.cards-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:700px){.cards-grid{grid-template-columns:repeat(4,1fr);gap:11px}}
+    @media(min-width:960px){.cards-grid{grid-template-columns:repeat(5,1fr)}}
+
+    /* CATEGORY CARD */
+    .swap-card{background:white;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:transform 0.18s,box-shadow 0.18s;display:flex;flex-direction:column}
+    .swap-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .card-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3}
+    .card-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(184,50,50,0.42) 0%,rgba(184,50,50,0.06) 50%,transparent 100%);pointer-events:none}
+    .card-avoid-tag{position:absolute;top:7px;right:8px;background:rgba(184,50,50,0.88);color:white;border-radius:6px;padding:2px 7px;font-size:0.6rem;font-weight:700;letter-spacing:0.03em;z-index:2}
+    .card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+    .swap-card:hover .card-img-wrap img{transform:scale(1.06)}
+    .card-badge{position:absolute;bottom:7px;left:8px;background:rgba(30,77,43,0.88);backdrop-filter:blur(6px);color:white;border-radius:100px;padding:2px 9px;font-size:0.65rem;font-weight:600;letter-spacing:0.03em}
+    .card-body{padding:8px 10px 10px;flex:1;display:flex;flex-direction:column;gap:2px}
+    .card-title{font-weight:700;font-size:0.8rem;color:var(--danger);line-height:1.3}
+    .card-skip{font-size:0.67rem;color:var(--danger);line-height:1.3;margin-top:1px}
+    .card-alts-pill{margin-top:auto;padding-top:6px;font-size:0.66rem;font-weight:600;color:var(--ok);background:var(--ok-bg);border-radius:100px;padding:3px 8px;display:inline-block;align-self:flex-start;border:1px solid var(--ok-bd)}
+
+    /* Product search card */
+    .product-card{border-color:var(--danger-bd)}
+    .product-card .card-badge{background:rgba(184,50,50,0.9)}
+    .product-card .card-title{color:var(--danger)}
+    .product-card .card-alts-pill{background:#FFF0EE;color:var(--danger);border-color:var(--danger-bd)}
+    .product-card:hover{box-shadow:0 8px 28px rgba(184,50,50,0.14)}
+
+    /* Section type label */
+    .type-lbl{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-lt);margin:18px 0 9px;display:flex;align-items:center;gap:8px}
+    .type-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
+
+    /* EMPTY STATE */
+    .empty-state{text-align:center;padding:44px 20px}
+    .empty-icon{font-size:2.6rem;margin-bottom:10px}
+    .empty-title{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:4px}
+    .empty-sub{font-size:0.8rem;color:var(--text-lt)}
+
+    /* AI LOADING */
+    .ai-loading{display:flex;gap:6px;align-items:center;font-size:0.83rem;color:var(--text-lt);padding:20px 0}
+    .ai-dot{width:7px;height:7px;border-radius:50%;background:var(--forest-lt);animation:bounce 1.2s infinite}
+    .ai-dot:nth-child(2){animation-delay:0.2s}
+    .ai-dot:nth-child(3){animation-delay:0.4s}
+    @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:500;display:none;align-items:flex-end;justify-content:center}
+    .modal-overlay.open{display:flex;animation:fdIn 0.2s ease}
+    @keyframes fdIn{from{opacity:0}to{opacity:1}}
+    .modal-sheet{background:var(--cream);border-radius:22px 22px 0 0;max-height:91vh;width:100%;max-width:600px;overflow-y:auto;position:relative;animation:slideUp 0.28s cubic-bezier(0.34,1.3,0.64,1)}
+    @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+    .modal-handle{width:34px;height:4px;background:#D0C8C0;border-radius:2px;margin:10px auto 0}
+    .modal-close{position:absolute;top:10px;right:14px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#666;transition:background 0.2s;z-index:10}
+    .modal-close:hover{background:rgba(0,0,0,0.18)}
+    .modal-img{width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
+    .modal-body{padding:16px 18px 40px}
+    .modal-cat-tag{display:inline-flex;align-items:center;gap:5px;background:var(--forest);color:white;border-radius:100px;padding:3px 12px;font-size:0.72rem;font-weight:600;margin-bottom:12px}
+
+    /* AVOID BLOCK */
+    .avoid-block{background:var(--danger-bg);border:1.5px solid var(--danger-bd);border-radius:var(--r);padding:13px;margin-bottom:13px}
+    .avoid-tag{display:inline-flex;align-items:center;gap:4px;background:var(--danger);color:white;border-radius:100px;padding:2px 10px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
+    .avoid-name{font-size:1.05rem;font-weight:700;color:var(--danger);margin-bottom:2px}
+    .avoid-price{font-size:0.76rem;color:var(--text-lt);margin-bottom:8px}
+    .avoid-reason{font-size:0.8rem;color:#7B3535;line-height:1.55}
+    /* Ingredient breakdown */
+    .ingr-section{margin-top:11px;border-top:1px dashed #FFB3B3;padding-top:10px}
+    .ingr-head{font-size:0.68rem;font-weight:700;color:#8B3535;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:7px}
+    .ingr-list{display:flex;flex-direction:column;gap:6px}
+    .ingr-row{display:flex;gap:8px;align-items:flex-start;font-size:0.76rem}
+    .ingr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+    .ingr-dot.critical{background:#C0392B}
+    .ingr-dot.high{background:#E67E22}
+    .ingr-dot.med{background:#D4891A}
+    .ingr-dot.low{background:#27AE60}
+    .ingr-name{font-weight:600;color:var(--text)}
+    .ingr-concern{color:var(--text-lt)}
+
+    /* SWAP DIVIDER */
+    .swap-div{display:flex;align-items:center;gap:8px;margin:4px 0 11px;font-size:0.69rem;font-weight:700;color:var(--forest);text-transform:uppercase;letter-spacing:0.06em}
+    .swap-div::before,.swap-div::after{content:'';flex:1;height:1px;background:#C8E6C9}
+
+    /* ALT ITEMS */
+    .alt-item{background:white;border:1.5px solid var(--ok-bd);border-radius:var(--r-sm);overflow:hidden;margin-bottom:9px;transition:border-color 0.18s}
+    .alt-item:hover{border-color:var(--forest-lt)}
+    .alt-hdr{padding:10px 13px 6px;background:linear-gradient(to right,#F0FBF3,white);display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+    .alt-name-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .alt-badge{background:var(--ok);color:white;border-radius:100px;padding:2px 7px;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0}
+    .alt-name{font-weight:700;font-size:0.86rem;color:var(--text)}
+    .alt-price{font-size:0.78rem;font-weight:700;color:var(--forest);white-space:nowrap;flex-shrink:0}
+    .alt-benefit{padding:0 13px 6px;font-size:0.75rem;color:var(--text-lt);line-height:1.5}
+    .buy-links{display:flex;flex-wrap:wrap;gap:5px;padding:6px 11px 9px;background:#FAFAFA;border-top:1px solid var(--border)}
+    .buy-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:100px;font-size:0.66rem;font-weight:600;border:1.5px solid;transition:all 0.15s;white-space:nowrap}
+    .buy-btn:hover{opacity:0.85;transform:scale(1.03)}
+    .buy-btn.amazon{border-color:#FF9900;color:#CC7A00;background:#FFF8EE}
+    .buy-btn.bigbasket{border-color:#84C225;color:#5A8A15;background:#F2FAE8}
+    .buy-btn.blinkit{border-color:#F5D300;color:#9B8700;background:#FFFCE0}
+    .buy-btn.jiomart{border-color:#1A73E8;color:#1557B0;background:#EEF4FF}
+
+    /* HEALTH SCORE */
+    .hs-row{display:flex;align-items:center;gap:8px;margin-top:11px;padding-top:11px;border-top:1px solid var(--border)}
+    .hs-label{font-size:0.72rem;color:var(--text-lt)}
+    .dots{display:flex;gap:3px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--forest-md)}
+    .dot.off{background:var(--border)}
+    .savings-pill{margin-left:auto;font-size:0.7rem;font-weight:600;color:var(--forest-md);background:#E4F5E8;border-radius:100px;padding:3px 10px}
+
+    /* AI RESULT SECTION */
+    .ai-result{margin-top:14px;padding:16px;background:white;border-radius:var(--r);border:1.5px solid var(--ok-bd)}
+    .ai-result-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:0.8rem;font-weight:700;color:var(--forest)}
+    .ai-disclaimer{font-size:0.7rem;color:var(--text-lt);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--forest);color:white;padding:9px 20px;border-radius:100px;font-size:0.84rem;font-weight:500;box-shadow:var(--shadow-lg);z-index:999;transition:transform 0.3s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+    .toast.show{transform:translateX(-50%) translateY(0)}
+
+    /* FOOTER */
+    footer{background:#140C05;color:rgba(255,255,255,0.55);padding:24px 20px;text-align:center;font-size:0.78rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.05rem;color:white;margin-bottom:5px}
+    footer p{max-width:380px;margin:0 auto 9px}
+    .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .footer-links a{color:#8DC874}
+    .footer-links a:hover{color:white}
+
+    @media(max-width:400px){
+      .hero{padding:20px 14px 28px}
+      .hero h1{font-size:1.35rem}
+      main{padding:12px 12px 60px}
+    }
+
+    /* Scan hero button in header */
+    .scan-hdr-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--forest),var(--forest-md));color:white;padding:7px 13px;border-radius:100px;font-size:0.76rem;font-weight:700;box-shadow:0 2px 8px rgba(30,77,43,0.3);transition:all 0.2s;white-space:nowrap;flex-shrink:0;margin-left:auto}
+    .scan-hdr-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(30,77,43,0.4)}
+    .scan-hdr-btn .pulse{width:7px;height:7px;border-radius:50%;background:#8DC874;animation:pulse-dot 1.8s ease-in-out infinite;flex-shrink:0}
+    @keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:0.5}}
+
+    /* Scan strip in hero */
+    .scan-strip{display:flex;align-items:center;gap:10px;margin-top:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 14px;cursor:pointer;transition:background 0.2s;max-width:540px}
+    .scan-strip:hover{background:rgba(255,255,255,0.17)}
+    .scan-strip-icon{font-size:1.4rem;flex-shrink:0}
+    .scan-strip-text{flex:1}
+    .scan-strip-text strong{display:block;color:white;font-size:0.83rem;font-weight:700}
+    .scan-strip-text span{color:rgba(255,255,255,0.62);font-size:0.72rem}
+    .scan-strip-arrow{color:var(--gold-lt);font-size:1.1rem}
+
+    /* SCAN MODAL */
+    #scan-overlay{background:rgba(0,0,0,0.65)}
+    .scan-sheet{background:var(--cream);border-radius:22px 22px 0 0;max-height:94vh;width:100%;max-width:600px;overflow-y:auto;position:relative;animation:slideUp 0.28s cubic-bezier(0.34,1.3,0.64,1)}
+    .scan-hero{background:linear-gradient(140deg,#1A4228,#2D7A43);padding:22px 20px;text-align:center}
+    .scan-hero-icon{font-size:2.6rem;margin-bottom:6px}
+    .scan-hero h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:white;font-weight:700;margin-bottom:3px}
+    .scan-hero p{font-size:0.76rem;color:rgba(255,255,255,0.68);max-width:300px;margin:0 auto}
+    .scan-body{padding:18px}
+    .drop-zone{border:2px dashed var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;cursor:pointer;transition:all 0.2s;background:white;margin-bottom:12px}
+    .drop-zone:hover,.drop-zone.drag-over{border-color:var(--forest);background:#F0FBF3}
+    .drop-zone-icon{font-size:2rem;margin-bottom:6px}
+    .drop-zone p{font-size:0.8rem;color:var(--text-lt);margin-bottom:8px}
+    .dz-btn-row{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+    .dz-btn{padding:7px 16px;border-radius:100px;font-size:0.78rem;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;gap:5px}
+    .dz-btn.primary{background:var(--forest);color:white}
+    .dz-btn.primary:hover{background:var(--forest-lt)}
+    .dz-btn.secondary{border:1.5px solid var(--border);color:var(--text-md)}
+    .dz-btn.secondary:hover{border-color:var(--forest);color:var(--forest)}
+    #scan-preview-wrap{display:none;margin-bottom:12px;position:relative}
+    #scan-preview-img{width:100%;max-height:200px;object-fit:contain;border-radius:var(--r);border:1px solid var(--border);background:#F5F5F5}
+    .preview-clear{position:absolute;top:7px;right:7px;background:rgba(0,0,0,0.52);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:0.72rem;cursor:pointer}
+    #scan-analyse-btn{width:100%;padding:12px;border-radius:100px;background:linear-gradient(135deg,var(--forest),var(--forest-md));color:white;font-size:0.88rem;font-weight:700;box-shadow:0 4px 14px rgba(30,77,43,0.28);transition:all 0.2s;display:none}
+    #scan-analyse-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,77,43,0.38)}
+    #scan-results{display:none;margin-top:2px}
+    .score-badge{display:flex;align-items:center;gap:12px;background:white;border-radius:var(--r);padding:14px;border:1.5px solid var(--border);margin-bottom:11px}
+    .score-circle{width:56px;height:56px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:800;color:white}
+    .score-info strong{display:block;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:2px}
+    .score-info p{font-size:0.74rem;color:var(--text-lt);line-height:1.4}
+    .score-label-pill{display:inline-block;border-radius:100px;padding:2px 9px;font-size:0.66rem;font-weight:700;color:white;margin-bottom:3px}
+    .scan-section-head{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-lt);margin:13px 0 7px;display:flex;align-items:center;gap:6px}
+    .scan-section-head::after{content:'';flex:1;height:1px;background:var(--border)}
+    .harm-item{display:flex;gap:9px;align-items:flex-start;padding:8px 10px;background:white;border-radius:var(--r-sm);border:1px solid var(--border);margin-bottom:5px}
+    .harm-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+    .harm-dot.critical{background:#C0392B}
+    .harm-dot.high{background:#E67E22}
+    .harm-dot.medium{background:#D4891A}
+    .harm-dot.low{background:#27AE60}
+    .harm-name{font-weight:600;font-size:0.78rem;color:var(--text);margin-bottom:1px}
+    .harm-amount{font-size:0.67rem;color:var(--text-lt);margin-bottom:2px}
+    .harm-risk{font-size:0.73rem;color:#7B3535;line-height:1.4}
+    .india-context{background:linear-gradient(to right,#FFF8EE,white);border:1px solid #F5DDB5;border-radius:var(--r-sm);padding:9px 11px;margin-bottom:5px;font-size:0.76rem;color:var(--text-md);line-height:1.5}
+    .india-context strong{display:block;color:var(--gold);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:3px}
+    .red-flags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+    .red-flag-pill{padding:2px 9px;border-radius:100px;border:1px solid var(--danger-bd);font-size:0.66rem;font-weight:600;color:var(--danger);background:var(--danger-bg)}
+    .scan-alt-item{background:white;border:1.5px solid var(--ok-bd);border-radius:var(--r-sm);padding:9px 11px;margin-bottom:6px}
+    .scan-alt-name{font-weight:700;font-size:0.82rem;color:var(--forest);margin-bottom:2px}
+    .scan-alt-reason{font-size:0.73rem;color:var(--text-lt);margin-bottom:5px;line-height:1.4}
+    .verdict-box{background:linear-gradient(135deg,var(--forest),var(--forest-md));border-radius:var(--r);padding:13px;color:white;font-size:0.8rem;line-height:1.5;text-align:center;margin-top:13px}
+    .verdict-box strong{display:block;margin-bottom:3px;font-size:0.88rem}
+    .scan-error{background:var(--danger-bg);border:1px solid var(--danger-bd);border-radius:var(--r-sm);padding:13px;font-size:0.8rem;color:var(--danger);text-align:center}
+    .scan-loading-wrap{display:none;padding:30px;text-align:center}
+    .scan-loading-wrap p{font-size:0.8rem;color:var(--text-lt);margin-top:9px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="logo"><span class="logo-leaf">🌿</span> Swasth Swap</div>
+    <button class="scan-hdr-btn" onclick="openScan()">
+      <div class="pulse"></div> 📷 Scan Label
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Eat <em>Healthier</em>, Still Feel at Home</h1>
+    <p>Search any food or brand — find out why it's harmful & get better Indian alternatives with ₹ prices.</p>
+    <div class="search-bar">
+      <input type="text" id="hero-search"
+        placeholder="Try: Rooh Afza, Maggi, Maida, Chips, Cola…"
+        oninput="handleSearch(this.value)"
+        onkeydown="if(event.key==='Enter')handleSearch(this.value)" />
+      <button class="sbtn" onclick="handleSearch(document.getElementById('hero-search').value)">Search</button>
+    </div>
+    <div class="scan-strip" onclick="openScan()">
+      <div class="scan-strip-icon">📷</div>
+      <div class="scan-strip-text">
+        <strong>New — Scan Any Ingredients Label</strong>
+        <span>Photograph a packet → instant health rating + safer alternatives</span>
+      </div>
+      <div class="scan-strip-arrow">›</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>19+</strong><span>Categories</span></div>
+      <div class="hero-stat"><strong>80+</strong><span>Healthy Swaps</span></div>
+      <div class="hero-stat"><strong>10+</strong><span>Brands Analysed</span></div>
+      <div class="hero-stat"><strong>₹</strong><span>Real Indian Prices</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar" id="filter-bar">
+  <div class="filt-inner" id="filter-pills"></div>
+</div>
+
+<main>
+  <div class="sec-hdr">
+    <h2 class="sec-title" id="sec-title">Healthy Food Swaps</h2>
+    <span class="results-count" id="results-count"></span>
+  </div>
+  <div id="results-container"></div>
+</main>
+
+<footer>
+  <div class="footer-logo">🌿 Swasth Swap</div>
+  <p>Helping India eat smarter, one swap at a time. Prices approximate & may vary by region.</p>
+  <div class="footer-links">
+    <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon India</a>
+    <a href="https://www.bigbasket.com" target="_blank" rel="noopener">BigBasket</a>
+    <a href="https://blinkit.com" target="_blank" rel="noopener">Blinkit</a>
+    <a href="https://www.jiomart.com" target="_blank" rel="noopener">JioMart</a>
+  </div>
+  <p style="margin-top:12px;opacity:0.3;font-size:0.7rem;">© 2025 Swasth Swap · Made with 💚 in India</p>
+</footer>
+
+<!-- SCAN STRIP in hero — inject via JS after hero loads -->
+<!-- DETAIL MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-sheet" id="modal-sheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal(null,true)">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- SCAN MODAL -->
+<div class="modal-overlay" id="scan-overlay" onclick="closeScan(event)" style="display:none">
+  <div class="scan-sheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeScan(null,true)">✕</button>
+    <div class="scan-hero">
+      <div class="scan-hero-icon">📷</div>
+      <h3>Ingredients Scanner</h3>
+      <p>Photograph any food packet's ingredient list — we'll rate it and suggest healthier alternatives</p>
+    </div>
+    <div class="scan-body">
+      <div id="scan-input-area">
+        <div class="drop-zone" id="drop-zone"
+             onclick="document.getElementById('scan-file').click()"
+             ondragover="handleDragOver(event)"
+             ondrop="handleDrop(event)"
+             ondragleave="this.classList.remove('drag-over')">
+          <div class="drop-zone-icon">🏷️</div>
+          <p>Point camera at the <strong>ingredients list</strong> on the back of any packet</p>
+          <div class="dz-btn-row">
+            <button class="dz-btn primary" onclick="event.stopPropagation();chooseScanSource('camera')">📷 Take Photo</button>
+            <button class="dz-btn secondary" onclick="event.stopPropagation();chooseScanSource('gallery')">🖼️ From Gallery</button>
+          </div>
+          <p style="margin-top:7px;font-size:0.68rem;color:#C0A898">Works best on full ingredients text — flip to the back of the packet</p>
+        </div>
+        <input type="file" id="scan-file" accept="image/*" style="display:none" onchange="handleScanFile(this)" />
+        <div id="scan-preview-wrap">
+          <img id="scan-preview-img" alt="Label preview" />
+          <button class="preview-clear" onclick="clearScan()">✕</button>
+        </div>
+        <button id="scan-analyse-btn" onclick="analyseScan()">🔬 Analyse Ingredients</button>
+      </div>
+      <div class="scan-loading-wrap" id="scan-loading">
+        <div class="ai-loading" style="justify-content:center">
+          <div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div>
+        </div>
+        <p>Analysing ingredients with AI…<br/><span style="font-size:0.68rem;color:#C0A898">Checking for harmful additives, GI index & Indian health context</span></p>
+      </div>
+      <div id="scan-results"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════
+   CATEGORY DATA (with category-specific images)
+═══════════════════════════════════════════ */
+const CATS = [
+  {
+    id:1, cat:"Sweeteners", emoji:"🍯",
+    img:"https://images.unsplash.com/photo-1550487269-3a57c2dc5b7f?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"White Sugar",price:"₹45/kg",
+      reason:"GI of 65 — causes rapid blood sugar spike and crash. Zero nutrients, pure empty calories. Strongly linked to Type 2 diabetes, obesity, fatty liver and chronic inflammation.",
+      ingredients:[
+        {name:"Sucrose (refined cane sugar)",level:"critical",concern:"Pure GI-65 carbohydrate, zero micronutrients, triggers insulin resistance with regular use"},
+        {name:"Sulphur dioxide (bleaching agent)",level:"high",concern:"Used to whiten sugar; can trigger asthma and gut irritation"},
+        {name:"Calcium hydroxide (processing aid)",level:"med",concern:"Residual from refining process"},
+      ]
+    },
+    alts:[
+      {name:"Jaggery (Gud)",price:"₹60–80/kg",benefit:"Iron-rich, lower GI (~50), retains calcium, potassium & magnesium. 1:1 swap in most recipes.",buyLinks:{amazon:"https://www.amazon.in/s?k=organic+jaggery",bigbasket:"https://www.bigbasket.com/ps/?q=organic+jaggery",blinkit:"https://blinkit.com/s/?q=jaggery",jiomart:"https://www.jiomart.com/search/jaggery"}},
+      {name:"Coconut Sugar",price:"₹200–300/kg",benefit:"GI of 35 vs 65 for sugar. Contains inulin prebiotic fibre, zinc & potassium. Great for baking.",buyLinks:{amazon:"https://www.amazon.in/s?k=coconut+sugar",bigbasket:"https://www.bigbasket.com/ps/?q=coconut+sugar",blinkit:"https://blinkit.com/s/?q=coconut+sugar",jiomart:"https://www.jiomart.com/search/coconut-sugar"}},
+      {name:"Raw Organic Honey",price:"₹250–400/500g",benefit:"Antioxidants, antimicrobial enzymes, natural energy boost. 25% sweeter — use less. Never heat above 40°C.",buyLinks:{amazon:"https://www.amazon.in/s?k=raw+organic+honey",bigbasket:"https://www.bigbasket.com/ps/?q=raw+honey",blinkit:"https://blinkit.com/s/?q=organic+honey",jiomart:"https://www.jiomart.com/search/raw-honey"}},
+      {name:"Stevia (Natural Leaf Extract)",price:"₹150–300/100g",benefit:"Zero calories, zero GI, 200× sweeter than sugar. Heat-stable. Completely safe for diabetics.",buyLinks:{amazon:"https://www.amazon.in/s?k=stevia+natural+sweetener+india",bigbasket:"https://www.bigbasket.com/ps/?q=stevia",blinkit:"https://blinkit.com/s/?q=stevia",jiomart:"https://www.jiomart.com/search/stevia"}},
+      {name:"Khajoor / Dates Paste",price:"₹120–200/250g",benefit:"Natural sweetness with fibre, potassium, magnesium. Blend into paste for baking, chutneys or smoothies.",buyLinks:{amazon:"https://www.amazon.in/s?k=medjool+dates+khajoor",bigbasket:"https://www.bigbasket.com/ps/?q=dates+khajoor",blinkit:"https://blinkit.com/s/?q=dates",jiomart:"https://www.jiomart.com/search/dates-khajoor"}},
+    ],savings:"Lower long-term health costs",health:5
+  },
+  {
+    id:2, cat:"Cooking Oils", emoji:"🫙",
+    img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Refined Vegetable / Sunflower Oil",price:"₹120–160/L",
+      reason:"Chemically extracted using hexane solvent, then bleached & deodorised — destroying all nutrients. Very high omega-6 causes inflammation. Unstable at cooking heat, creating harmful free radicals.",
+      ingredients:[
+        {name:"Hexane solvent residue",level:"critical",concern:"Petroleum-derived extraction solvent; trace amounts remain after refining"},
+        {name:"Bleaching agents (activated clay)",level:"high",concern:"Used to remove color; strips remaining nutrients"},
+        {name:"High omega-6 PUFA content",level:"high",concern:"Pro-inflammatory when omega-3:6 ratio is imbalanced, as in refined oils"},
+        {name:"Trans fat risk at high heat",level:"critical",concern:"PUFAs oxidise when heated, creating aldehydes and trans fats"},
+      ]
+    },
+    alts:[
+      {name:"Cold-Pressed Mustard Oil (Kachi Ghani)",price:"₹180–220/L",benefit:"Omega-3s, anti-inflammatory, high smoke point. Traditional Indian choice with zero chemical processing.",buyLinks:{amazon:"https://www.amazon.in/s?k=cold+pressed+mustard+oil+kachi+ghani",bigbasket:"https://www.bigbasket.com/ps/?q=kachi+ghani+mustard+oil",blinkit:"https://blinkit.com/s/?q=kachi+ghani+mustard+oil",jiomart:"https://www.jiomart.com/search/mustard-oil-cold-pressed"}},
+      {name:"Cold-Pressed Groundnut (Peanut) Oil",price:"₹200–280/L",benefit:"Rich in MUFAs, excellent high smoke point — perfect for deep frying. Traditional South Indian & Gujarati choice.",buyLinks:{amazon:"https://www.amazon.in/s?k=cold+pressed+groundnut+peanut+oil",bigbasket:"https://www.bigbasket.com/ps/?q=cold+pressed+groundnut+oil",blinkit:"https://blinkit.com/s/?q=groundnut+oil+cold+pressed",jiomart:"https://www.jiomart.com/search/groundnut-oil-cold-pressed"}},
+      {name:"Virgin Coconut Oil",price:"₹350–500/L",benefit:"Stable at high heat, medium-chain fatty acids for quick energy, antimicrobial lauric acid.",buyLinks:{amazon:"https://www.amazon.in/s?k=virgin+coconut+oil",bigbasket:"https://www.bigbasket.com/ps/?q=virgin+coconut+oil",blinkit:"https://blinkit.com/s/?q=coconut+oil",jiomart:"https://www.jiomart.com/search/virgin-coconut-oil"}},
+      {name:"Cold-Pressed Sesame / Gingelly Oil",price:"₹250–350/L",benefit:"Sesamol antioxidants, anti-inflammatory, traditional South Indian tadka oil — lignan content supports hormones.",buyLinks:{amazon:"https://www.amazon.in/s?k=cold+pressed+sesame+gingelly+oil",bigbasket:"https://www.bigbasket.com/ps/?q=sesame+oil+gingelly",blinkit:"https://blinkit.com/s/?q=sesame+oil",jiomart:"https://www.jiomart.com/search/sesame-oil"}},
+      {name:"Pure Desi Ghee (A2)",price:"₹600–900/500g",benefit:"Fat-soluble vitamins A, D, E, K2; butyrate for gut health; highest smoke point; aids spice absorption.",buyLinks:{amazon:"https://www.amazon.in/s?k=A2+desi+ghee",bigbasket:"https://www.bigbasket.com/ps/?q=desi+ghee+a2",blinkit:"https://blinkit.com/s/?q=a2+ghee",jiomart:"https://www.jiomart.com/search/a2-ghee"}},
+    ],savings:"Better nutrition per rupee",health:5
+  },
+  {
+    id:3, cat:"Flours", emoji:"🌾",
+    img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Maida (Refined White Flour)",price:"₹35–45/kg",
+      reason:"Bran & germ completely stripped — leaving only empty starch. GI of 85+ spikes blood sugar instantly. Damages gut microbiome, causes constipation, zero vitamins. Highly processed and addictive by design.",
+      ingredients:[
+        {name:"Refined endosperm only (zero fibre)",level:"critical",concern:"GI 85+ — faster blood sugar spike than table sugar"},
+        {name:"Benzoyl peroxide (bleaching agent)",level:"high",concern:"Used to whiten flour; destroys naturally occurring carotenoids"},
+        {name:"Potassium bromate (in some brands)",level:"critical",concern:"Potential carcinogen, banned in EU & Canada but still found in India"},
+        {name:"Zero B-vitamins (stripped in milling)",level:"high",concern:"B1, B2, B3, B6 and iron all removed — cheap brands don't fortify"},
+      ]
+    },
+    alts:[
+      {name:"Whole Wheat Atta (Chakki-ground)",price:"₹45–70/kg",benefit:"3× more fibre, B-vitamins, iron intact. Lower GI, better satiety. Simple 1:1 swap for most recipes.",buyLinks:{amazon:"https://www.amazon.in/s?k=chakki+whole+wheat+atta",bigbasket:"https://www.bigbasket.com/ps/?q=whole+wheat+atta",blinkit:"https://blinkit.com/s/?q=whole+wheat+atta",jiomart:"https://www.jiomart.com/search/whole-wheat-atta"}},
+      {name:"Ragi (Finger Millet) Flour",price:"₹80–120/kg",benefit:"Highest calcium of any grain (344mg/100g), iron, amino acids. Gluten-free, great for dosas, rotis, ladoos.",buyLinks:{amazon:"https://www.amazon.in/s?k=ragi+flour+organic",bigbasket:"https://www.bigbasket.com/ps/?q=ragi+flour",blinkit:"https://blinkit.com/s/?q=ragi+flour",jiomart:"https://www.jiomart.com/search/ragi-flour"}},
+      {name:"Jowar (Sorghum) Flour",price:"₹60–90/kg",benefit:"Gluten-free, high iron & calcium, very low GI. Traditional Deccan bhakri flour — excellent rotis & pancakes.",buyLinks:{amazon:"https://www.amazon.in/s?k=jowar+flour+sorghum",bigbasket:"https://www.bigbasket.com/ps/?q=jowar+flour",blinkit:"https://blinkit.com/s/?q=jowar+atta",jiomart:"https://www.jiomart.com/search/jowar-flour"}},
+      {name:"Besan (Chickpea Flour)",price:"₹70–90/kg",benefit:"22g protein/100g, high fibre, low GI, naturally gluten-free. Perfect for chilla, pakoda, kadhi, dhokla.",buyLinks:{amazon:"https://www.amazon.in/s?k=besan+chickpea+flour",bigbasket:"https://www.bigbasket.com/ps/?q=besan",blinkit:"https://blinkit.com/s/?q=besan",jiomart:"https://www.jiomart.com/search/besan"}},
+      {name:"Bajra (Pearl Millet) Flour",price:"₹40–60/kg",benefit:"High iron, zinc, magnesium. Traditional Rajasthani rotla — warming in winter, low GI, good for anaemia.",buyLinks:{amazon:"https://www.amazon.in/s?k=bajra+flour+pearl+millet",bigbasket:"https://www.bigbasket.com/ps/?q=bajra+flour",blinkit:"https://blinkit.com/s/?q=bajra+atta",jiomart:"https://www.jiomart.com/search/bajra-flour"}},
+    ],savings:"Save on long-term health costs",health:5
+  },
+  {
+    id:4, cat:"Rice & Grains", emoji:"🍚",
+    img:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Polished White Rice",price:"₹40–70/kg",
+      reason:"Milling strips 90% of nutrients — all fibre, most B-vitamins, magnesium removed. GI of 72+ causes rapid insulin spike. Daily consumption strongly linked to Type 2 diabetes in South Asian populations.",
+      ingredients:[
+        {name:"Stripped starch (endosperm only)",level:"critical",concern:"GI 72 — rapid insulin spike, especially dangerous for South Asians"},
+        {name:"Zero fibre post-milling",level:"high",concern:"Bran completely removed; gut microbiome gets no fermentable fibre"},
+        {name:"Arsenic accumulation (in some regions)",level:"med",concern:"Rice absorbs arsenic from soil; polishing doesn't remove it"},
+      ]
+    },
+    alts:[
+      {name:"Brown Rice",price:"₹80–120/kg",benefit:"Bran & germ intact: fibre, magnesium, B-vitamins. GI of 55. Cook same as white rice — add 10 extra minutes.",buyLinks:{amazon:"https://www.amazon.in/s?k=brown+rice+organic",bigbasket:"https://www.bigbasket.com/ps/?q=brown+rice",blinkit:"https://blinkit.com/s/?q=brown+rice",jiomart:"https://www.jiomart.com/search/brown-rice"}},
+      {name:"Foxtail Millet (Kangni)",price:"₹90–130/kg",benefit:"GI of only 50, gluten-free, antioxidants. Perfect for diabetics — cook like rice, very similar texture & taste.",buyLinks:{amazon:"https://www.amazon.in/s?k=foxtail+millet",bigbasket:"https://www.bigbasket.com/ps/?q=foxtail+millet",blinkit:"https://blinkit.com/s/?q=foxtail+millet",jiomart:"https://www.jiomart.com/search/foxtail-millet"}},
+      {name:"Barnyard Millet (Jhangora)",price:"₹100–150/kg",benefit:"Highest fibre of all millets (10.1g/100g), iron, zinc, very low GI. Excellent for weight management.",buyLinks:{amazon:"https://www.amazon.in/s?k=barnyard+millet",bigbasket:"https://www.bigbasket.com/ps/?q=barnyard+millet",blinkit:"https://blinkit.com/s/?q=barnyard+millet",jiomart:"https://www.jiomart.com/search/barnyard-millet"}},
+      {name:"Quinoa",price:"₹200–350/kg",benefit:"Complete protein with all 9 amino acids, gluten-free, low GI. Use in biryani, khichdi or salad base.",buyLinks:{amazon:"https://www.amazon.in/s?k=quinoa+india",bigbasket:"https://www.bigbasket.com/ps/?q=quinoa",blinkit:"https://blinkit.com/s/?q=quinoa",jiomart:"https://www.jiomart.com/search/quinoa"}},
+    ],savings:"Better nutrition density",health:4
+  },
+  {
+    id:5, cat:"Snacks & Namkeen", emoji:"🍿",
+    img:"https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Fried Chips & Packaged Namkeen",price:"₹20–50/pack",
+      reason:"High-heat frying creates acrylamide (probable carcinogen). 300–500mg sodium per small serving. MSG and artificial flavour enhancers bypass satiety — engineered to make you eat more than you should.",
+      ingredients:[
+        {name:"Refined palm/vegetable oil (deep fried)",level:"critical",concern:"Acrylamide forms when starchy foods are fried at high heat — probable carcinogen"},
+        {name:"MSG / Disodium 5'-ribonucleotides",level:"high",concern:"Amplifies salt taste, bypasses natural satiety signals"},
+        {name:"High sodium (300–500mg/serving)",level:"high",concern:"1–2 servings can hit 50% of daily sodium limit"},
+        {name:"Artificial flavour enhancers (631, 627)",level:"med",concern:"Can trigger headaches; no nutritional value"},
+      ]
+    },
+    alts:[
+      {name:"Makhana (Roasted Fox Nuts)",price:"₹150–200/100g",benefit:"Low calorie, high protein & magnesium, anti-aging antioxidants. Season with ghee, chaat masala & black pepper.",buyLinks:{amazon:"https://www.amazon.in/s?k=makhana+fox+nuts+roasted",bigbasket:"https://www.bigbasket.com/ps/?q=makhana",blinkit:"https://blinkit.com/s/?q=makhana",jiomart:"https://www.jiomart.com/search/makhana"}},
+      {name:"Roasted Chana (Salted)",price:"₹60–80/250g",benefit:"19g protein/100g, fibre, iron, B-vitamins. India's original protein snack — actually fills you up.",buyLinks:{amazon:"https://www.amazon.in/s?k=roasted+chana+salted",bigbasket:"https://www.bigbasket.com/ps/?q=roasted+chana",blinkit:"https://blinkit.com/s/?q=roasted+chana",jiomart:"https://www.jiomart.com/search/roasted-chana"}},
+      {name:"Puffed Rice Bhel (with veggies)",price:"₹30–50/serving",benefit:"Zero-oil base — add cucumber, onion, tomato, lemon, chaat masala. Very low calorie, deeply satisfying.",buyLinks:{amazon:"https://www.amazon.in/s?k=murmura+puffed+rice",bigbasket:"https://www.bigbasket.com/ps/?q=murmura",blinkit:"https://blinkit.com/s/?q=murmura",jiomart:"https://www.jiomart.com/search/murmura"}},
+      {name:"Mixed Nuts & Dry Fruits",price:"₹150–250/100g",benefit:"Heart-healthy fats, protein, fibre. Almonds & walnuts proven to reduce hunger hormones for hours.",buyLinks:{amazon:"https://www.amazon.in/s?k=mixed+dry+fruits+nuts",bigbasket:"https://www.bigbasket.com/ps/?q=mixed+dry+fruits",blinkit:"https://blinkit.com/s/?q=dry+fruits+mix",jiomart:"https://www.jiomart.com/search/dry-fruits-mix"}},
+    ],savings:"Up to 60% fewer calories",health:4
+  },
+  {
+    id:6, cat:"Beverages", emoji:"🥤",
+    img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Aerated Soft Drinks",price:"₹20–60/can",
+      reason:"39g sugar per 355ml can — 8 teaspoons in one drink. Phosphoric acid leaches calcium from bones and erodes enamel. Diet versions use aspartame which disrupts gut microbiome. Regular consumption strongly linked to obesity, PCOS and fatty liver in Indians.",
+      ingredients:[
+        {name:"High-fructose corn syrup / sugar (39g/can)",level:"critical",concern:"8 teaspoons per can; liver processes fructose like alcohol — leads to fatty liver"},
+        {name:"Phosphoric acid",level:"critical",concern:"Leaches calcium from bones; erodes tooth enamel within minutes"},
+        {name:"Caramel colour (4-MEI)",level:"high",concern:"Possible carcinogen; not disclosed as an additive separately"},
+        {name:"Caffeine (34mg/can)",level:"low",concern:"Mild diuretic; interacts with anxiety and sleep quality"},
+      ]
+    },
+    alts:[
+      {name:"Nariyal Pani (Tender Coconut Water)",price:"₹30–60/coconut",benefit:"Natural electrolytes, 600mg potassium per serving, zero added sugar. India's original sports drink.",buyLinks:{amazon:"https://www.amazon.in/s?k=tender+coconut+water+packaged",bigbasket:"https://www.bigbasket.com/ps/?q=coconut+water",blinkit:"https://blinkit.com/s/?q=coconut+water",jiomart:"https://www.jiomart.com/search/coconut-water"}},
+      {name:"Chaas / Spiced Buttermilk",price:"₹15–30/glass",benefit:"Probiotics, cooling, easy to digest. Cumin + ginger aids digestion. Perfect after meals.",buyLinks:{amazon:"https://www.amazon.in/s?k=chaas+buttermilk+packaged",bigbasket:"https://www.bigbasket.com/ps/?q=chaas+buttermilk",blinkit:"https://blinkit.com/s/?q=chaas",jiomart:"https://www.jiomart.com/search/chaas"}},
+      {name:"Aam Panna (Raw Mango Cooler)",price:"₹20–40/glass",benefit:"Vitamin C, prevents heat stroke, boosts iron absorption. India's best summer cooler with real nutrition.",buyLinks:{amazon:"https://www.amazon.in/s?k=aam+panna+concentrate",bigbasket:"https://www.bigbasket.com/ps/?q=aam+panna",blinkit:"https://blinkit.com/s/?q=aam+panna",jiomart:"https://www.jiomart.com/search/aam-panna"}},
+      {name:"Nimbu Pani with Kala Namak",price:"₹5–15/glass",benefit:"Vitamin C, alkalising, digestive. Use jaggery for sweetness. Costs ₹5 and beats any packaged drink.",buyLinks:{amazon:"https://www.amazon.in/s?k=kala+namak+black+salt",bigbasket:"https://www.bigbasket.com/ps/?q=kala+namak",blinkit:"https://blinkit.com/s/?q=kala+namak",jiomart:"https://www.jiomart.com/search/kala-namak"}},
+    ],savings:"Save sugar & dental bills",health:5
+  },
+  {
+    id:7, cat:"Chocolates", emoji:"🍫",
+    img:"https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Milk Chocolate Bars",price:"₹20–100/bar",
+      reason:"Sugar is the #1 ingredient — 50–60% of the bar. Palm oil adds saturated fat. Tiny cocoa content means almost none of the beneficial flavonoids are present. GI of 45–49 spikes blood sugar. Engineered to trigger overeating.",
+      ingredients:[
+        {name:"Sugar (50–60% of bar)",level:"critical",concern:"More sugar than cocoa in most milk chocolate bars — first ingredient listed"},
+        {name:"Palm oil / vegetable fat",level:"high",concern:"Saturated fat, environmentally destructive; used to cheapen chocolate"},
+        {name:"Artificial milk solids (PGPR emulsifier)",level:"high",concern:"PGPR (E476) replaces expensive cocoa butter — gut-disrupting emulsifier"},
+        {name:"Artificial vanilla flavouring",level:"med",concern:"Synthetic; real vanilla has antioxidant properties, fake has none"},
+      ]
+    },
+    alts:[
+      {name:"Dark Chocolate (70%+ Cocoa)",price:"₹80–200/bar",benefit:"Flavonoids lower blood pressure, high magnesium & iron. 70%+ dark has 3× less sugar than milk chocolate.",buyLinks:{amazon:"https://www.amazon.in/s?k=dark+chocolate+70+percent+india",bigbasket:"https://www.bigbasket.com/ps/?q=dark+chocolate+70",blinkit:"https://blinkit.com/s/?q=dark+chocolate",jiomart:"https://www.jiomart.com/search/dark-chocolate"}},
+      {name:"Raw Cacao Nibs",price:"₹200–350/100g",benefit:"Purest form — mood-boosting theobromine, magnesium, iron. Zero sugar. Sprinkle on oats, smoothies, yoghurt.",buyLinks:{amazon:"https://www.amazon.in/s?k=raw+cacao+nibs+india",bigbasket:"https://www.bigbasket.com/ps/?q=cacao+nibs",blinkit:"https://blinkit.com/s/?q=cacao+nibs",jiomart:"https://www.jiomart.com/search/cacao-nibs"}},
+      {name:"Peanut Chikki / Til Ladoo",price:"₹15–30/piece",benefit:"Traditional Indian sweet: peanut protein, sesame calcium & iron, jaggery minerals. All real, zero refined ingredients.",buyLinks:{amazon:"https://www.amazon.in/s?k=peanut+chikki+jaggery",bigbasket:"https://www.bigbasket.com/ps/?q=peanut+chikki",blinkit:"https://blinkit.com/s/?q=peanut+chikki",jiomart:"https://www.jiomart.com/search/peanut-chikki"}},
+    ],savings:"Real nutrition in every bite",health:4
+  },
+  {
+    id:8, cat:"Breakfast Cereals", emoji:"🥣",
+    img:"https://images.unsplash.com/photo-1621960494280-dc3caed7a3bf?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Sugary Boxed Cereals",price:"₹150–250/box",
+      reason:"Up to 40% sugar per serving. Refined grains with minimal fibre. Aggressively marketed to children. Essentially sugar puffs that spike blood sugar before school. Studies show they cause worse attention span dips in kids by mid-morning.",
+      ingredients:[
+        {name:"Sugar (30–45% of cereal weight)",level:"critical",concern:"Up to 9 tsp per serving hidden in 'healthy' packaging"},
+        {name:"Refined corn/wheat (stripped grains)",level:"high",concern:"Bran removed — minimal fibre, high GI, fast crash"},
+        {name:"BHT / BHA preservatives",level:"high",concern:"Oxidation inhibitors; potential endocrine disruption in children"},
+        {name:"Synthetic vitamins (cosmetic fortification)",level:"low",concern:"Added to mask poor nutrition on label — not as bioavailable as food-based vitamins"},
+      ]
+    },
+    alts:[
+      {name:"Rolled Oats (Plain)",price:"₹100–150/kg",benefit:"Beta-glucan fibre lowers cholesterol, keeps full for hours. Customize with banana, nuts and honey.",buyLinks:{amazon:"https://www.amazon.in/s?k=rolled+oats+plain",bigbasket:"https://www.bigbasket.com/ps/?q=rolled+oats",blinkit:"https://blinkit.com/s/?q=oats",jiomart:"https://www.jiomart.com/search/rolled-oats"}},
+      {name:"Poha (Flattened Rice)",price:"₹30–50/kg",benefit:"Iron absorption, light on stomach, probiotic when slightly fermented. Nutritious 10-minute breakfast for ₹20.",buyLinks:{amazon:"https://www.amazon.in/s?k=thin+poha+flattened+rice",bigbasket:"https://www.bigbasket.com/ps/?q=poha",blinkit:"https://blinkit.com/s/?q=poha",jiomart:"https://www.jiomart.com/search/poha"}},
+      {name:"Daliya (Broken Wheat Porridge)",price:"₹40–60/kg",benefit:"Whole grain protein + fibre keeps blood sugar stable. Traditional, cheap, great with milk, jaggery & cardamom.",buyLinks:{amazon:"https://www.amazon.in/s?k=daliya+broken+wheat",bigbasket:"https://www.bigbasket.com/ps/?q=daliya+broken+wheat",blinkit:"https://blinkit.com/s/?q=daliya",jiomart:"https://www.jiomart.com/search/daliya"}},
+    ],savings:"Save ₹100+ per week",health:5
+  },
+  {
+    id:9, cat:"Tea & Coffee", emoji:"🍵",
+    img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Sugary CTC Milk Tea (excess)",price:"₹5–15/cup",
+      reason:"Tannins inhibit iron absorption by up to 70% — critical for iron-deficient Indians. 2 tsp sugar × 4 cups/day = 8 tsp sugar daily. Excess caffeine causes anxiety, disrupts sleep, causes acid reflux.",
+      ingredients:[
+        {name:"Tannins (polyphenols in excess)",level:"high",concern:"Block non-haem iron absorption by 60–70% when drunk with or after meals"},
+        {name:"Added sugar (2+ tsp per cup)",level:"high",concern:"4 cups a day = hidden 8 tsp sugar — equivalent to a can of soda"},
+        {name:"Excess caffeine (>300mg/day)",level:"med",concern:"Anxiety, sleep disruption, acid reflux, dependency"},
+      ]
+    },
+    alts:[
+      {name:"Green Tea (Tulsi or Ginger)",price:"₹150–300/50 bags",benefit:"EGCG antioxidants fight inflammation. L-theanine gives calm focus without the anxiety. Zero calories.",buyLinks:{amazon:"https://www.amazon.in/s?k=organic+green+tea+india",bigbasket:"https://www.bigbasket.com/ps/?q=green+tea",blinkit:"https://blinkit.com/s/?q=green+tea",jiomart:"https://www.jiomart.com/search/green-tea"}},
+      {name:"Turmeric Golden Milk (Haldi Doodh)",price:"₹60–90/serving",benefit:"Curcumin is the most studied anti-inflammatory compound. Add black pepper to boost absorption by 2000%.",buyLinks:{amazon:"https://www.amazon.in/s?k=turmeric+golden+milk+latte+mix",bigbasket:"https://www.bigbasket.com/ps/?q=golden+milk+mix",blinkit:"https://blinkit.com/s/?q=golden+milk",jiomart:"https://www.jiomart.com/search/turmeric-milk-mix"}},
+      {name:"Black Filter Coffee (no sugar)",price:"₹150–300/100g",benefit:"Strong antioxidant, metabolism boost, cognitive performance. Without sugar: near-zero calories & real benefits.",buyLinks:{amazon:"https://www.amazon.in/s?k=filter+coffee+powder+south+india",bigbasket:"https://www.bigbasket.com/ps/?q=filter+coffee",blinkit:"https://blinkit.com/s/?q=filter+coffee",jiomart:"https://www.jiomart.com/search/filter-coffee"}},
+    ],savings:"Better energy without sugar crash",health:4
+  },
+  {
+    id:10, cat:"Packaged Juice", emoji:"🧃",
+    img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&h=438&q=80",
+    bad:{name:"Packaged Fruit Juice",price:"₹30–80/carton",
+      reason:"Added sugar makes most juice equivalent to soda. All fibre removed — the entire reason whole fruit is healthy. Pasteurisation destroys heat-sensitive vitamins. Most brands are 10–20% real juice and the rest is water + sugar + flavour.",
+      ingredients:[
+        {name:"Added sugar (15–25g per 200ml)",level:"critical",concern:"Without fibre, fruit sugar hits bloodstream as fast as table sugar"},
+        {name:"Fruit concentrate (reconstituted)",level:"high",concern:"Processed from dried concentrate — not 'fresh'; vitamins degraded"},
+        {name:"Ascorbic acid (synthetic Vitamin C)",level:"low",concern:"Added to appear nutritious; far less effective than real food Vitamin C"},
+        {name:"Sodium benzoate (preservative)",level:"high",concern:"Reacts with Vitamin C to form benzene, a known carcinogen"},
+      ]
+    },
+    alts:[
+      {name:"Whole Fresh Fruit",price:"₹20–60/serving",benefit:"Fibre slows sugar absorption dramatically. An orange as juice: GI 75. As whole fruit: GI 40. Vitamins intact.",buyLinks:{amazon:"https://www.amazon.in/s?k=fresh+fruits+online",bigbasket:"https://www.bigbasket.com/ps/?q=fresh+fruits",blinkit:"https://blinkit.com/s/?q=fresh+fruits",jiomart:"https://www.jiomart.com/search/fresh-fruits"}},
+      {name:"Cold-Pressed Juice (100%, No Added Sugar)",price:"₹60–100/bottle",benefit:"Live enzymes, higher nutrients — no heat processing. Check label: only 'cold-pressed' with zero added sugar.",buyLinks:{amazon:"https://www.amazon.in/s?k=cold+pressed+juice+no+sugar+india",bigbasket:"https://www.bigbasket.com/ps/?q=cold+pressed+juice",blinkit:"https://blinkit.com/s/?q=cold+pressed+juice",jiomart:"https://www.jiomart.com/search/cold-pressed-juice"}},
+      {name:"Nimbu Pani (Fresh Lemon Water)",price:"₹5–15/glass",benefit:"Real Vitamin C, alkalising, detoxifying. Use jaggery for sweetness. Near-zero calories, zero chemicals.",buyLinks:{amazon:"https://www.amazon.in/s?k=lemon+nimbu+fresh",bigbasket:"https://www.bigbasket.com/ps/?q=lemon+fresh",blinkit:"https://blinkit.com/s/?q=lemon",jiomart:"https://www.jiomart.com/search/lemon"}},
+    ],savings:"Huge sugar savings",health:5
+  },
+];
+
+/* ═══════════════════════════════════════════
+   SPECIFIC UNHEALTHY PRODUCTS (Brand Search)
+═══════════════════════════════════════════ */
+const PRODUCTS = [
+  {
+    id:"p1", name:"Rooh Afza", brand:"Hamdard", type:"product",
+    cat:"Sugary Sherbets", emoji:"🍹",
+    img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&h=438&q=80",
+    ingredients:[
+      {name:"Sugar (60–70% of syrup)",level:"critical",concern:"First and dominant ingredient — one glass contains 6–8 teaspoons of sugar"},
+      {name:"Artificial red food colour (Carmoisine / E122)",level:"critical",concern:"Azo dye linked to hyperactivity in children; banned in some countries"},
+      {name:"Rose water / synthetic fragrance",level:"low",concern:"Real rose water is fine; many brands use synthetic rose fragrance"},
+      {name:"Citric acid (preservative)",level:"low",concern:"Generally safe but acidic — can erode enamel with regular sipping"},
+    ],
+    whyBad:"Rooh Afza is essentially coloured sugar syrup. One 30ml serving in water adds 6–8 teaspoons of sugar to your drink. The vivid red colour (Carmoisine E122) is an artificial azo dye linked to hyperactivity in children and banned in some countries. It has no real nutritional value — just sugar, water, synthetic fragrance and artificial colour.",
+    alts:[
+      {name:"Homemade Chia Falooda (Rose + Sabja)",price:"₹20–30/glass",benefit:"Real sabja seeds (basil) cool the body naturally, fibre, omega-3s. Add a drop of real rose water. Zero artificial dye.",buyLinks:{amazon:"https://www.amazon.in/s?k=sabja+seeds+basil+seeds",bigbasket:"https://www.bigbasket.com/ps/?q=sabja+seeds",blinkit:"https://blinkit.com/s/?q=sabja+seeds",jiomart:"https://www.jiomart.com/search/sabja-seeds"}},
+      {name:"Aam Panna (Natural Mango Cooler)",price:"₹20–40/glass",benefit:"Real raw mango: Vitamin C, iron absorption, cooling. Sweeten with jaggery. No artificial colour needed.",buyLinks:{amazon:"https://www.amazon.in/s?k=aam+panna+concentrate+no+sugar",bigbasket:"https://www.bigbasket.com/ps/?q=aam+panna",blinkit:"https://blinkit.com/s/?q=aam+panna",jiomart:"https://www.jiomart.com/search/aam-panna"}},
+      {name:"Rose Sherbet with Real Gulkand",price:"₹30–50/bottle",benefit:"Real rose petals preserved in jaggery: cooling, digestive, gut-friendly. Far less sugar, real Ayurvedic benefit.",buyLinks:{amazon:"https://www.amazon.in/s?k=gulkand+rose+petal+preserve+organic",bigbasket:"https://www.bigbasket.com/ps/?q=gulkand",blinkit:"https://blinkit.com/s/?q=gulkand",jiomart:"https://www.jiomart.com/search/gulkand"}},
+      {name:"Tender Coconut Water",price:"₹30–60/coconut",benefit:"Natural electrolytes, 600mg potassium, zero artificial anything. The best Indian summer drink — no recipe needed.",buyLinks:{amazon:"https://www.amazon.in/s?k=tender+coconut+water",bigbasket:"https://www.bigbasket.com/ps/?q=coconut+water",blinkit:"https://blinkit.com/s/?q=coconut+water",jiomart:"https://www.jiomart.com/search/coconut-water"}},
+    ],savings:"Massive sugar reduction",health:5
+  },
+  {
+    id:"p2", name:"Maggi Noodles", brand:"Nestlé", type:"product",
+    cat:"Instant Noodles", emoji:"🍜",
+    img:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=700&h=438&q=80",
+    ingredients:[
+      {name:"Maida (refined wheat flour) — 70%+ of noodle",level:"critical",concern:"Pure starch, zero fibre, GI of 80+. Spikes blood sugar instantly"},
+      {name:"Palm oil (used in frying noodles)",level:"high",concern:"Saturated fat from pre-frying; oxidised during storage"},
+      {name:"High sodium (800–1000mg per pack = 40% daily limit)",level:"critical",concern:"Nearly half your daily sodium in one small pack"},
+      {name:"MSG (flavour enhancer 621)",level:"high",concern:"Bypasses satiety signals; causes Chinese Restaurant Syndrome in sensitive people"},
+      {name:"TBHQ (antioxidant preservative)",level:"high",concern:"Petroleum-derived preservative; liver toxicity in large doses; classified as hazardous"},
+      {name:"Artificial flavouring",level:"med",concern:"Designed to be addictive — the 'masala' taste has no nutritional value"},
+    ],
+    whyBad:"Maggi is essentially deep-fried maida with a salt-and-MSG flavour packet. The noodle block is pre-fried in palm oil, giving you saturated fat before you even cook it. 800–1000mg sodium per pack is 40% of your daily limit in one snack. TBHQ is a petroleum-derived preservative. The 2015 ban found lead and MSG above limits — while it returned to shelves, the core nutritional problems remain.",
+    alts:[
+      {name:"Ragi / Millet Instant Noodles",price:"₹80–130/pack",benefit:"Calcium, iron, fibre from millet base. Same quick-cook convenience, vastly better nutrition. Available now in most stores.",buyLinks:{amazon:"https://www.amazon.in/s?k=ragi+millet+noodles+instant",bigbasket:"https://www.bigbasket.com/ps/?q=millet+noodles",blinkit:"https://blinkit.com/s/?q=millet+noodles",jiomart:"https://www.jiomart.com/search/millet-noodles"}},
+      {name:"Homemade Poha (5 minutes)",price:"₹15–20/serving",benefit:"Flattened rice + veggies + peanuts + curry leaves. Better nutrition in the same time. Costs half as much.",buyLinks:{amazon:"https://www.amazon.in/s?k=thin+poha+flattened+rice",bigbasket:"https://www.bigbasket.com/ps/?q=thin+poha",blinkit:"https://blinkit.com/s/?q=poha",jiomart:"https://www.jiomart.com/search/poha"}},
+      {name:"Sewai (Whole Wheat Vermicelli)",price:"₹30–50/pack",benefit:"Thin wheat vermicelli — roast and cook with vegetables, cumin, mustard seeds. Real food in 8 minutes.",buyLinks:{amazon:"https://www.amazon.in/s?k=whole+wheat+vermicelli+sewai",bigbasket:"https://www.bigbasket.com/ps/?q=whole+wheat+vermicelli",blinkit:"https://blinkit.com/s/?q=sewai+vermicelli",jiomart:"https://www.jiomart.com/search/whole-wheat-vermicelli"}},
+    ],savings:"Same convenience, real nutrition",health:4
+  },
+  {
+    id:"p3", name:"Frooti / Slice / Maaza", brand:"Pepsi / Coca-Cola", type:"product",
+    cat:"Packaged Mango Drinks", emoji:"🥭",
+    img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&h=438&q=80",
+    ingredients:[
+      {name:"Added sugar (20–30g per 200ml serving)",level:"critical",concern:"More sugar than a full-size chocolate bar in one small tetra pack"},
+      {name:"Mango pulp (only 10–15% in most brands)",level:"high",concern:"Marketed as 'real mango' but mostly sugar water with mango flavouring"},
+      {name:"Sodium benzoate + potassium sorbate (preservatives)",level:"high",concern:"Benzoate reacts with Vitamin C to form benzene — a known carcinogen"},
+      {name:"Artificial mango flavouring",level:"med",concern:"Synthetic ester compounds to enhance mango smell — no nutrition"},
+      {name:"Citric acid",level:"low",concern:"Enamel erosion with regular consumption"},
+    ],
+    whyBad:"Frooti and Maaza are sugar water with 10–15% mango pulp and artificial mango flavouring. A 200ml pack has 25–30g of sugar — equivalent to 6 teaspoons. The 'real mango' marketing is deeply misleading. Sodium benzoate reacts with any residual Vitamin C in the drink to form benzene. You're paying ₹30 for coloured sugar water.",
+    alts:[
+      {name:"Whole Fresh Mango (in season)",price:"₹30–80/mango",benefit:"Real Vitamin A, C, fibre, enzymes. Eat the fruit — get 10× the nutrition of the drink for the same price.",buyLinks:{amazon:"https://www.amazon.in/s?k=alphonso+mango+fresh",bigbasket:"https://www.bigbasket.com/ps/?q=fresh+mango",blinkit:"https://blinkit.com/s/?q=mango",jiomart:"https://www.jiomart.com/search/fresh-mango"}},
+      {name:"Homemade Aam Panna (No Added Sugar)",price:"₹10–20/glass",benefit:"Raw mango boiled & blended with kala namak, jeera, mint. Vitamin C, iron absorption, cools the body. Traditional & powerful.",buyLinks:{amazon:"https://www.amazon.in/s?k=raw+mango+kaccha+aam",bigbasket:"https://www.bigbasket.com/ps/?q=raw+mango",blinkit:"https://blinkit.com/s/?q=raw+mango",jiomart:"https://www.jiomart.com/search/raw-mango"}},
+      {name:"100% Cold-Pressed Mango Juice (No Sugar)",price:"₹60–100/bottle",benefit:"Real cold-pressed juice: live enzymes, actual Vitamin C & A. Check label — no added sugar, no concentrate.",buyLinks:{amazon:"https://www.amazon.in/s?k=cold+pressed+mango+juice+no+sugar",bigbasket:"https://www.bigbasket.com/ps/?q=cold+pressed+mango+juice",blinkit:"https://blinkit.com/s/?q=mango+juice+no+sugar",jiomart:"https://www.jiomart.com/search/mango-juice-no-sugar"}},
+    ],savings:"Real mango, real nutrition",health:5
+  },
+  {
+    id:"p4", name:"Lay's / Kurkure / Bingo Chips", brand:"PepsiCo / ITC", type:"product",
+    cat:"Packaged Chips", emoji:"🍟",
+    img:"https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=700&h=438&q=80",
+    ingredients:[
+      {name:"Refined palm/sunflower oil (deep fried)",level:"critical",concern:"Acrylamide forms when potatoes/corn are fried at 180°C+ — IARC Group 2A probable carcinogen"},
+      {name:"High sodium (350–500mg/30g serving)",level:"critical",concern:"One small packet = 20–25% of daily sodium limit. Most people eat 2–3 packets."},
+      {name:"MSG + flavour enhancers (627, 631)",level:"high",concern:"Bypasses satiety hormones — scientifically designed to trigger overeating"},
+      {name:"Maize starch / potato starch base",level:"high",concern:"High GI — fast blood sugar spike followed by crash, leading to cravings"},
+      {name:"Artificial colours (tartrazine, sunset yellow)",level:"high",concern:"Azo dyes linked to hyperactivity in children and allergic reactions"},
+    ],
+    whyBad:"Lay's and Kurkure are specifically engineered to be addictive — the combination of fat, salt, MSG and refined carbs creates a 'bliss point' that overrides your body's natural stop signals. Deep frying at 180°C+ creates acrylamide, a probable carcinogen. A single 'small' packet of Kurkure has 450mg sodium — nearly 20% of your daily limit. Nobody eats just one.",
+    alts:[
+      {name:"Makhana (Roasted Fox Nuts)",price:"₹150–200/100g",benefit:"Natural crunch, high protein & magnesium, anti-aging antioxidants. Season with chaat masala and ghee for same flavour hit.",buyLinks:{amazon:"https://www.amazon.in/s?k=makhana+fox+nuts+roasted",bigbasket:"https://www.bigbasket.com/ps/?q=makhana",blinkit:"https://blinkit.com/s/?q=makhana",jiomart:"https://www.jiomart.com/search/makhana"}},
+      {name:"Roasted Chana + Murmura Mix",price:"₹40–60/serving",benefit:"Protein-rich chana + puffed rice + lemon + chaat masala. Same satisfying crunch, real food ingredients.",buyLinks:{amazon:"https://www.amazon.in/s?k=roasted+chana+murmura",bigbasket:"https://www.bigbasket.com/ps/?q=roasted+chana",blinkit:"https://blinkit.com/s/?q=roasted+chana",jiomart:"https://www.jiomart.com/search/roasted-chana"}},
+      {name:"Air-Popped Popcorn (Home)",price:"₹20–40/serving",benefit:"Whole grain, high fibre, very low calorie when air-popped. Season with turmeric, black pepper or chaat masala.",buyLinks:{amazon:"https://www.amazon.in/s?k=air+pop+popcorn+maker",bigbasket:"https://www.bigbasket.com/ps/?q=popcorn+kernels",blinkit:"https://blinkit.com/s/?q=popcorn+kernels",jiomart:"https://www.jiomart.com/search/popcorn-kernels"}},
+    ],savings:"60% fewer calories, no additives",health:4
+  },
+  {
+    id:"p5", name:"Dairy Milk / KitKat / Munch", brand:"Cadbury / Nestlé", type:"product",
+    cat:"Milk Chocolates", emoji:"🍫",
+    img:"https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=700&h=438&q=80",
+    ingredients:[
+      {name:"Sugar (first ingredient — 55–65%)",level:"critical",concern:"More sugar than cocoa. A Dairy Milk has 26g sugar per 45g bar — nearly 6 teaspoons"},
+      {name:"Palm oil / vegetable fat (PGPR E476)",level:"high",concern:"PGPR emulsifier replaces cocoa butter; linked to gut microbiome disruption"},
+      {name:"Artificial vanilla / vanillin",level:"med",concern:"Synthetic vanillin from petrochemicals — real vanilla has antioxidants, fake has zero"},
+      {name:"Maltodextrin (in wafer variants)",level:"high",concern:"GI of 110 — higher than table sugar; spikes blood sugar faster"},
+      {name:"Only 20–30% cocoa in milk chocolate",level:"high",concern:"All the marketing benefits of cocoa (flavonoids, magnesium) barely exist in milk chocolate"},
+    ],
+    whyBad:"Cadbury Dairy Milk is primarily a sugar product, not a chocolate product. 55–65% sugar, a tiny amount of cocoa, and palm oil with chemical emulsifiers. The health benefits of cocoa (flavonoids, magnesium, theobromine) only become significant at 70%+ cocoa content — milk chocolate has too little. You're essentially eating a flavoured sugar bar.",
+    alts:[
+      {name:"Dark Chocolate 70%+ (Amul, Paul & Mike, Mason)",price:"₹80–200/bar",benefit:"3× less sugar, real cocoa flavonoids, magnesium for heart health. Indian brands like Paul & Mike are excellent and ethical.",buyLinks:{amazon:"https://www.amazon.in/s?k=dark+chocolate+70+percent+indian+brand",bigbasket:"https://www.bigbasket.com/ps/?q=dark+chocolate+70+percent",blinkit:"https://blinkit.com/s/?q=dark+chocolate+70",jiomart:"https://www.jiomart.com/search/dark-chocolate-70"}},
+      {name:"Peanut Chikki (Jaggery-based)",price:"₹15–30/piece",benefit:"Peanut protein + jaggery iron + sesame calcium. A traditional sweet with real nutritional content, no chemicals.",buyLinks:{amazon:"https://www.amazon.in/s?k=peanut+chikki+groundnut+jaggery",bigbasket:"https://www.bigbasket.com/ps/?q=peanut+chikki",blinkit:"https://blinkit.com/s/?q=peanut+chikki",jiomart:"https://www.jiomart.com/search/peanut-chikki"}},
+      {name:"Date & Nut Fudge (Homemade)",price:"₹20–35/piece",benefit:"Dates + walnuts + raw cocoa: natural sweetness, fibre, omega-3s, real chocolate taste. 5 ingredients, all real.",buyLinks:{amazon:"https://www.amazon.in/s?k=medjool+dates+walnuts+raw+cocoa",bigbasket:"https://www.bigbasket.com/ps/?q=dates+walnuts",blinkit:"https://blinkit.com/s/?q=medjool+dates",jiomart:"https://www.jiomart.com/search/medjool-dates"}},
+    ],savings:"Real chocolate flavour, real nutrition",health:4
+  },
+];
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let activeFilter = 'All';
+let searchTerm   = '';
+let aiSearchPending = false;
+
+/* ═══════════════════════════════════════════
+   SEARCH HANDLER
+═══════════════════════════════════════════ */
+function handleSearch(val){
+  searchTerm = val.trim().toLowerCase();
+  document.getElementById('filter-bar').style.display = searchTerm ? 'none' : '';
+  renderAll();
+}
+
+/* ═══════════════════════════════════════════
+   FILTER
+═══════════════════════════════════════════ */
+function buildFilters(){
+  const pills = ['All', ...CATS.map(c=>c.cat)];
+  document.getElementById('filter-pills').innerHTML = pills.map(p=>
+    `<button class="fpill${p==='All'?' active':''}" onclick="setFilter('${p}',this)">${p}</button>`
+  ).join('');
+}
+function setFilter(cat,btn){
+  activeFilter = cat;
+  document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+/* ═══════════════════════════════════════════
+   RENDER
+═══════════════════════════════════════════ */
+function renderAll(){
+  const container = document.getElementById('results-container');
+
+  if(searchTerm){
+    // Product matches first
+    const prodMatches = PRODUCTS.filter(p=>
+      p.name.toLowerCase().includes(searchTerm) ||
+      p.brand.toLowerCase().includes(searchTerm) ||
+      p.cat.toLowerCase().includes(searchTerm)
+    );
+    // Category matches
+    const catMatches = CATS.filter(c=>
+      c.cat.toLowerCase().includes(searchTerm) ||
+      c.bad.name.toLowerCase().includes(searchTerm) ||
+      c.alts.some(a=>a.name.toLowerCase().includes(searchTerm))
+    );
+
+    const totalFound = prodMatches.length + catMatches.length;
+    document.getElementById('sec-title').textContent = `Results for "${searchTerm}"`;
+    document.getElementById('results-count').textContent =
+      totalFound ? `${totalFound} result${totalFound!==1?'s':''} found` : '';
+
+    if(totalFound === 0){
+      container.innerHTML = renderAISearch(searchTerm);
+      return;
+    }
+
+    let html = '';
+    if(prodMatches.length){
+      html += `<div class="type-lbl">🔍 Brand / Product matches</div><div class="cards-grid">`;
+      html += prodMatches.map(p=>buildProductCard(p)).join('');
+      html += '</div>';
+    }
+    if(catMatches.length){
+      if(prodMatches.length) html += `<div class="type-lbl" style="margin-top:20px">📂 Category matches</div>`;
+      html += `<div class="cards-grid">`;
+      html += catMatches.map(c=>buildCatCard(c)).join('');
+      html += '</div>';
+    }
+    container.innerHTML = html;
+
+  } else {
+    // Normal browse
+    const filtered = activeFilter==='All' ? CATS : CATS.filter(c=>c.cat===activeFilter);
+    document.getElementById('sec-title').textContent = 'Healthy Food Swaps';
+    document.getElementById('results-count').textContent =
+      `Showing ${filtered.length} of ${CATS.length} categories`;
+    container.innerHTML = `<div class="cards-grid">${filtered.map(buildCatCard).join('')}</div>`;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   CARD BUILDERS
+═══════════════════════════════════════════ */
+function buildCatCard(c){
+  return `
+    <div class="swap-card" onclick="openCatModal(${c.id})">
+      <div class="card-img-wrap">
+        <img src="${c.img}" alt="${c.bad.name}" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&h=300&q=70'" />
+        <div class="card-avoid-tag">⚠️ Avoid</div>
+        <div class="card-badge">${c.emoji} ${c.cat}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${c.bad.name}</div>
+        <div class="card-skip">${c.bad.reason.substring(0,65)}…</div>
+        <div class="card-alts-pill">✅ ${c.alts.length} healthier swaps →</div>
+      </div>
+    </div>`;
+}
+function buildProductCard(p){
+  return `
+    <div class="swap-card product-card" onclick="openProductModal('${p.id}')">
+      <div class="card-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&h=300&q=70'" />
+        <div class="card-avoid-tag">⚠️ Avoid</div>
+        <div class="card-badge">🏷️ ${p.name}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${p.name} <span style="font-size:0.66rem;font-weight:400;color:var(--text-lt)">(${p.brand})</span></div>
+        <div class="card-skip">${p.whyBad.substring(0,65)}…</div>
+        <div class="card-alts-pill">✅ ${p.alts.length} healthier swaps →</div>
+      </div>
+    </div>`;
+}
+
+function renderAISearch(term){
+  return `
+    <div style="text-align:center;padding:32px 16px">
+      <div style="font-size:2.2rem;margin-bottom:10px">🤔</div>
+      <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:5px">No local results for "${term}"</div>
+      <div style="font-size:0.8rem;color:var(--text-lt);margin-bottom:18px">Let our AI analyse this product for you</div>
+      <button onclick="doAISearch('${term.replace(/'/g,"\\'")}');"
+        style="background:var(--forest);color:white;padding:11px 24px;border-radius:100px;font-size:0.88rem;font-weight:600;transition:background 0.2s">
+        ✨ Analyse "${term}" with AI
+      </button>
+      <div id="ai-result-area"></div>
+    </div>`;
+}
+
+/* ═══════════════════════════════════════════
+   AI SEARCH
+═══════════════════════════════════════════ */
+async function doAISearch(term){
+  const area = document.getElementById('ai-result-area');
+  if(!area) return;
+  area.innerHTML = `<div class="ai-loading" style="justify-content:center;margin-top:16px"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span style="margin-left:6px">Analysing with AI…</span></div>`;
+
+  const catCtx = CATS.map(c=>`${c.cat}: Avoid "${c.bad.name}", swap with: ${c.alts.map(a=>a.name).join(', ')}`).join('\n');
+
+  try {
+    const res = await fetch("/.netlify/functions/ai",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:900,
+        system:`You are Swasth Swap's nutrition expert for Indian consumers. When given any food or product name:
+1. Explain WHY it's unhealthy (specific ingredients, amounts, health risks). Be factual and specific.
+2. List 3-4 healthier Indian alternatives with approximate ₹ prices.
+3. Be warm, practical and India-specific.
+
+Output as clean HTML with these exact elements:
+- A <div class="avoid-reason"> with 2-3 sentences on why it's unhealthy
+- An <ul style="margin:10px 0 0 14px;font-size:0.82rem;color:#5C3D2E"> with 3-4 <li> alternatives, each with name, price range and one-line benefit
+
+Known categories for reference:\n${catCtx}
+
+Keep total response under 300 words. No markdown. Only output the HTML fragments above, nothing else.`,
+        messages:[{role:"user",content:`Analyse this Indian food/product for health: "${term}". Why is it unhealthy and what are better alternatives?`}]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.find(b=>b.type==='text')?.text || '';
+    area.innerHTML = `
+      <div class="ai-result" style="margin-top:20px;text-align:left">
+        <div class="ai-result-hdr">✨ AI Analysis for "${term}"</div>
+        ${text}
+        <div class="ai-disclaimer">⚠️ AI-generated — verify with a registered nutritionist for medical decisions.</div>
+      </div>`;
+  } catch(e){
+    area.innerHTML = `<div style="margin-top:16px;font-size:0.82rem;color:var(--text-lt)">⚠️ Could not reach AI. Please check your connection.</div>`;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   MODALS
+═══════════════════════════════════════════ */
+function openCatModal(id){
+  const c = CATS.find(x=>x.id===id);
+  if(!c) return;
+  const dots = Array.from({length:5},(_,i)=>`<div class="dot${i>=c.health?' off':''}"></div>`).join('');
+  const ingrHtml = c.bad.ingredients?.length ? `
+    <div class="ingr-section">
+      <div class="ingr-head">⚗️ Why it's harmful — ingredient breakdown</div>
+      <div class="ingr-list">
+        ${c.bad.ingredients.map(i=>`
+          <div class="ingr-row">
+            <div class="ingr-dot ${i.level}"></div>
+            <div><span class="ingr-name">${i.name}</span> — <span class="ingr-concern">${i.concern}</span></div>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  document.getElementById('modal-content').innerHTML = `
+    <img class="modal-img" src="${c.img}" alt="${c.cat}"
+      onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&h=300&q=80'" />
+    <div class="modal-body">
+      <div class="modal-cat-tag">${c.emoji} ${c.cat}</div>
+      <div class="avoid-block">
+        <div class="avoid-tag">⚠️ Avoid</div>
+        <div class="avoid-name">${c.bad.name}</div>
+        <div class="avoid-price">${c.bad.price}</div>
+        <div class="avoid-reason">${c.bad.reason}</div>
+        ${ingrHtml}
+      </div>
+      <div class="swap-div">↓ Healthier Swaps</div>
+      ${c.alts.map(buildAltItem).join('')}
+      <div class="hs-row">
+        <span class="hs-label">Health benefit</span>
+        <div class="dots">${dots}</div>
+        <div class="savings-pill">💚 ${c.savings}</div>
+      </div>
+    </div>`;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function openProductModal(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  const ingrHtml = p.ingredients?.length ? `
+    <div class="ingr-section">
+      <div class="ingr-head">⚗️ Ingredient breakdown — what makes it harmful</div>
+      <div class="ingr-list">
+        ${p.ingredients.map(i=>`
+          <div class="ingr-row">
+            <div class="ingr-dot ${i.level}"></div>
+            <div><span class="ingr-name">${i.name}</span> — <span class="ingr-concern">${i.concern}</span></div>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  document.getElementById('modal-content').innerHTML = `
+    <img class="modal-img" src="${p.img}" alt="${p.name}"
+      onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&h=300&q=80'" />
+    <div class="modal-body">
+      <div class="modal-cat-tag">⚠️ ${p.cat} · ${p.brand}</div>
+      <div class="avoid-block">
+        <div class="avoid-tag">⚠️ Unhealthy Product</div>
+        <div class="avoid-name">${p.name}</div>
+        <div class="avoid-reason">${p.whyBad}</div>
+        ${ingrHtml}
+      </div>
+      <div class="swap-div">↓ Healthier Alternatives</div>
+      ${p.alts.map(buildAltItem).join('')}
+      <div class="hs-row">
+        <span class="hs-label">Health benefit</span>
+        <div class="dots">${Array.from({length:5},(_,i)=>`<div class="dot${i>=p.health?' off':''}"></div>`).join('')}</div>
+        <div class="savings-pill">💚 ${p.savings}</div>
+      </div>
+    </div>`;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function buildAltItem(a){
+  const icons={amazon:'🛒',bigbasket:'🟢',blinkit:'⚡',jiomart:'🔵'};
+  const labels={amazon:'Amazon',bigbasket:'BigBasket',blinkit:'Blinkit',jiomart:'JioMart'};
+  const links = Object.entries(a.buyLinks||{}).map(([k,url])=>
+    `<a href="${url}" target="_blank" rel="noopener" class="buy-btn ${k}">${icons[k]} ${labels[k]}</a>`
+  ).join('');
+  return `
+    <div class="alt-item">
+      <div class="alt-hdr">
+        <div class="alt-name-row">
+          <div class="alt-badge">✓ Healthy</div>
+          <div class="alt-name">${a.name}</div>
+        </div>
+        <div class="alt-price">${a.price}</div>
+      </div>
+      <div class="alt-benefit">${a.benefit}</div>
+      <div class="buy-links">${links}</div>
+    </div>`;
+}
+
+function closeModal(e, force){
+  if(force || e?.target===document.getElementById('modal-overlay')){
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closeModal(null,true); closeScan(null,true); }
+});
+
+/* ════════════════════════════════════════════
+   SCAN FEATURE
+════════════════════════════════════════════ */
+let scanImageBase64=null, scanMediaType='image/jpeg';
+
+function openScan(){
+  const el=document.getElementById('scan-overlay');
+  el.style.display='flex'; el.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeScan(e,force){
+  if(force||e?.target===document.getElementById('scan-overlay')){
+    const el=document.getElementById('scan-overlay');
+    el.classList.remove('open'); el.style.display='none';
+    document.body.style.overflow='';
+  }
+}
+function chooseScanSource(source){
+  const input=document.getElementById('scan-file');
+  source==='camera'?input.setAttribute('capture','environment'):input.removeAttribute('capture');
+  input.click();
+}
+function handleDragOver(e){e.preventDefault();document.getElementById('drop-zone').classList.add('drag-over')}
+function handleDrop(e){e.preventDefault();document.getElementById('drop-zone').classList.remove('drag-over');const f=e.dataTransfer?.files?.[0];if(f)processFile(f)}
+function handleScanFile(input){const f=input.files?.[0];if(f)processFile(f)}
+
+function processFile(file){
+  if(!file.type.startsWith('image/')){toast('Please select an image file');return}
+  scanMediaType=file.type||'image/jpeg';
+  const reader=new FileReader();
+  reader.onload=(e)=>{
+    const result=e.target.result;
+    if(file.size>3*1024*1024){
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        const scale=Math.sqrt((3*1024*1024)/file.size);
+        canvas.width=Math.round(img.width*scale);
+        canvas.height=Math.round(img.height*scale);
+        canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+        const compressed=canvas.toDataURL('image/jpeg',0.82);
+        scanImageBase64=compressed.split(',')[1];
+        scanMediaType='image/jpeg';
+        showPreview(compressed);
+      };
+      img.src=result;
+    } else {
+      scanImageBase64=result.split(',')[1];
+      showPreview(result);
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function showPreview(dataUrl){
+  document.getElementById('scan-preview-img').src=dataUrl;
+  document.getElementById('scan-preview-wrap').style.display='block';
+  document.getElementById('scan-analyse-btn').style.display='block';
+  document.getElementById('scan-results').style.display='none';
+  document.getElementById('scan-results').innerHTML='';
+}
+function clearScan(){
+  scanImageBase64=null;
+  document.getElementById('scan-file').value='';
+  document.getElementById('scan-preview-wrap').style.display='none';
+  document.getElementById('scan-analyse-btn').style.display='none';
+  document.getElementById('scan-results').style.display='none';
+  document.getElementById('scan-loading').style.display='none';
+}
+
+async function analyseScan(){
+  if(!scanImageBase64){toast('Please select an image first');return}
+  document.getElementById('scan-input-area').style.display='none';
+  document.getElementById('scan-loading').style.display='block';
+  document.getElementById('scan-results').style.display='none';
+  try {
+    const res=await fetch('/.netlify/functions/scan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({imageBase64:scanImageBase64,mediaType:scanMediaType})
+    });
+    const data=await res.json();
+    document.getElementById('scan-loading').style.display='none';
+    document.getElementById('scan-results').style.display='block';
+    if(data.error){
+      document.getElementById('scan-results').innerHTML=`<div class="scan-error">⚠️ ${data.error}</div><button onclick="resetScan()" style="margin-top:12px;width:100%;padding:11px;border-radius:100px;background:var(--forest);color:white;font-weight:700;font-size:0.85rem">← Try Again</button>`;
+      return;
+    }
+    renderScanResults(data);
+  } catch(e){
+    document.getElementById('scan-loading').style.display='none';
+    document.getElementById('scan-results').style.display='block';
+    document.getElementById('scan-results').innerHTML=`<div class="scan-error">⚠️ Could not connect to analysis server. Check your internet connection and try again.</div><button onclick="resetScan()" style="margin-top:12px;width:100%;padding:11px;border-radius:100px;background:var(--forest);color:white;font-weight:700;font-size:0.85rem">← Try Again</button>`;
+  }
+}
+
+function renderScanResults(d){
+  const sc={A:'#27AE60',B:'#52BE80',C:'#F39C12',D:'#E67E22',F:'#C0392B'};
+  const color=d.scoreColor||sc[d.overallScore]||'#888';
+  const harmHtml=(d.harmfulIngredients||[]).map(h=>`
+    <div class="harm-item">
+      <div class="harm-dot ${h.level||'medium'}"></div>
+      <div><div class="harm-name">${h.name}</div>${h.amount?`<div class="harm-amount">Amount: ${h.amount}</div>`:''}
+      <div class="harm-risk">${h.risk}</div></div>
+    </div>`).join('');
+  const flagHtml=(d.redFlags||[]).map(f=>`<div class="red-flag-pill">⚠️ ${f}</div>`).join('');
+  const altHtml=(d.alternatives||[]).map(a=>`
+    <div class="scan-alt-item">
+      <div class="scan-alt-name">✅ ${a.name}</div>
+      <div class="scan-alt-reason">${a.reason}</div>
+      ${a.searchUrl?`<a href="${a.searchUrl}" target="_blank" rel="noopener" class="buy-btn amazon" style="font-size:0.7rem">🛒 Find on Amazon</a>`:''}
+    </div>`).join('');
+
+  document.getElementById('scan-results').innerHTML=`
+    <div class="score-badge">
+      <div class="score-circle" style="background:${color}">${d.overallScore||'?'}</div>
+      <div class="score-info">
+        <div class="score-label-pill" style="background:${color}">${d.scoreLabel||'Unknown'}</div>
+        <strong>${d.productName||'Scanned Product'}</strong>
+        <p>${d.scoreSummary||''}</p>
+      </div>
+    </div>
+    ${flagHtml?`<div class="red-flags">${flagHtml}</div>`:''}
+    ${harmHtml?`<div class="scan-section-head">⚠️ Harmful Ingredients (${d.harmfulCount||0} found)</div>${harmHtml}`:''}
+    ${d.indianContext?`<div class="scan-section-head">🇮🇳 Indian Health Context</div><div class="india-context"><strong>Why this matters for Indians</strong>${d.indianContext}</div>`:''}
+    ${altHtml?`<div class="scan-section-head">✅ Healthier Alternatives</div>${altHtml}`:''}
+    ${d.verdict?`<div class="verdict-box"><strong>Swasth Swap Verdict</strong>${d.verdict}</div>`:''}
+    <button onclick="resetScan()" style="margin-top:14px;width:100%;padding:10px;border-radius:100px;border:1.5px solid var(--border);color:var(--text-md);font-weight:600;font-size:0.82rem;background:white">📷 Scan Another Product</button>
+    <p style="text-align:center;font-size:0.66rem;color:var(--text-lt);margin-top:6px">AI-generated — verify with a nutritionist for medical decisions</p>`;
+}
+
+function resetScan(){
+  scanImageBase64=null;
+  document.getElementById('scan-file').value='';
+  document.getElementById('scan-preview-wrap').style.display='none';
+  document.getElementById('scan-analyse-btn').style.display='none';
+  document.getElementById('scan-results').style.display='none';
+  document.getElementById('scan-results').innerHTML='';
+  document.getElementById('scan-loading').style.display='none';
+  document.getElementById('scan-input-area').style.display='block';
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded',()=>{
+  buildFilters();
+  renderAll();
+
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        e.target.style.transform='translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.06});
+
+  setTimeout(()=>{
+    document.querySelectorAll('.swap-card').forEach((card,i)=>{
+      card.style.opacity='0';
+      card.style.transform='translateY(16px)';
+      card.style.transition=`opacity 0.35s ease ${i*0.04}s,transform 0.35s ease ${i*0.04}s,box-shadow 0.2s`;
+      obs.observe(card);
+    });
+  },60);
+});
+</script>
+</body>
+</html>
